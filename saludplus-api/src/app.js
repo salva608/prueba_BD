@@ -1,3 +1,11 @@
+/**
+ * app.js
+ * 
+ * Archivo principal de configuración de la aplicación Express.
+ * Define la aplicación base, configura el middleware para procesar JSON,
+ * y registra todas las rutas de la API para doctores, reportes, pacientes y simulacro.
+ */
+
 import express from 'express';
 
 import doctorRoutes from './routes/doctors.js';

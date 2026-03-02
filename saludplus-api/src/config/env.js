@@ -1,3 +1,11 @@
+/**
+ * env.js
+ * 
+ * Archivo de configuración de variables de entorno.
+ * Carga las variables del archivo .env y las exporta para su uso en la aplicación.
+ * Variables configuradas: PORT, POSTGRES_URL, MONGO_URI
+ */
+
 import dotenv from 'dotenv';
 
 dotenv.config();

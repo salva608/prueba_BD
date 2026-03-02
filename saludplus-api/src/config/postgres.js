@@ -1,3 +1,11 @@
+/**
+ * postgres.js
+ * 
+ * Archivo de configuración y conexión a PostgreSQL.
+ * Crea un pool de conexiones con la base de datos PostgreSQL
+ * y maneja la conexión y errores automáticamente.
+ */
+
 import pkg from 'pg';
 import { POSTGRES_URL } from './env.js';
 
