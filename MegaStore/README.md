@@ -1,4 +1,4 @@
-## Tecnologías Utilizadas
+## Technologies Used
 
 - Node.js
 - Express
@@ -11,72 +11,72 @@
 
 ---
 
-## Requisitos Previos
+## Prerequisites
 
-Antes de ejecutar el proyecto, asegúrese de tener instalado:
+Before running the project, make sure you have the following installed:
 
 ### 1. Node.js
 
-Verificar versión:
+Check version:
 
 ```bash
 node -v
 
-Se recomienda Node 18 o superior.
+Node 18 or higher is recommended.
 
 2. PostgreSQL
 
-Verificar:
+Check:
 
 psql --version
 
-Debe tener el servidor activo.
+The server must be running.
 
-Instalación del Proyecto
+Project Installation
 
-Clonar o descargar el proyecto.
+Clone or download the project.
 
-Ubicarse en la carpeta raíz del proyecto:
+Navigate to the project's root directory:
 
 cd MegaStore
 
-Instalar todas las dependencias:
+Install all dependencies:
 
 npm install
-Variables de Entorno
+Environment Variables
 
-Crear un archivo .env en la raíz del proyecto con la siguiente estructura:
+Create an .env file in the project root directory with the following structure:
 
 PORT=3000
 
 POSTGRES_HOST=localhost
-POSTGRES_USER=tu_usuario
-POSTGRES_PASSWORD=tu_password
+POSTGRES_USER=your_username
+POSTGRES_PASSWORD=your_password
 POSTGRES_DB=db_megastore_exam
 POSTGRES_PORT=5432
 
-
 FILE_DATA_CSV=./data/AM-prueba-desempeno-data_m4.csv
 
-Asegúrese de que:
+Ensure that:
 
-Las credenciales sean correctas.
+The credentials are correct.
 
-La base de datos exista.
+The database exists.
 
-La ruta del CSV sea válida.
+The CSV path is valid.
 
-Configuración de Base de Datos
-1. Crear Base de Datos en PostgreSQL
+Database Setup
+1. Create a Database in PostgreSQL
 
-Antes de ejecutar el proyecto, debe crear la base de datos manualmente:
+Before running the project, you must manually create the database:
 
 CREATE DATABASE db_megastore_exam;
-2. Crear Tablas Necesarias
 
-Es obligatorio que las tablas existan antes de ejecutar la migración.
+2. Create Required Tables
 
-Las tablas necesarias son:
+The tables must exist before running the migration.
+
+The required tables are:
 
 transaction
 
@@ -90,51 +90,48 @@ category
 
 detail_transaction
 
-Las siguientes columnas deben tener restricción UNIQUE para que el proceso idempotente funcione correctamente:
+The following columns must have a UNIQUE constraint for the idempotent process to work correctly:
 
 customer_email
 
-Ejemplo:
+Example:
 
 email VARCHAR(255) UNIQUE NOT NULL
 
-Si no existen restricciones UNIQUE, el proceso ON CONFLICT fallará.
+If there are no UNIQUE constraints, the ON CONFLICT process will fail.
 
-Ejecución del Proyecto
+Project Execution
 
-Para iniciar el servidor y ejecutar la migración:
+To start the server and run the migration:
 
 npm run start
 
-El servidor realiza:
+The server performs the following:
 
-Conexión a PostgreSQL.
+Connects to PostgreSQL.
 
+Runs the migration process.
 
-Ejecución del proceso de migración.
+Start the server on the configured port.
 
+Read the CSV file.
 
-Inicio del servidor en el puerto configurado.
+Data Normalization.
 
-Lectura del CSV
-
-Normalización de Datos
-
-
-El proceso puede ejecutarse múltiples veces sin duplicar datos gracias al uso de:
+The process can be run multiple times without data duplication thanks to the use of:
 
 ON CONFLICT (...) DO NOTHING
 
-Ejemplo:
+Example:
 
-Uso de async/await.
+Using async/await.
 
-Manejo de errores con try/catch.
+Error handling with try/catch.
 
-Verifique:
+Verify:
 
-Credenciales del archivo .env.
+Credentials in the .env file.
 
-Servicios PostgreSQL  activos.
+PostgreSQL services are running.
 
-Puerto correcto.
+The port is correct.
